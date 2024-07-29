@@ -41,23 +41,21 @@ export default function Login() {
         }
     };
 
-    return <div id="namePrompter">
-        <form onSubmit={loginHandler}>
-            <h3>Sign into your account</h3>
-            <div className="login-container">
-                <div>
-                    <label htmlFor="username_input">Please enter your username</label>
-                    <input id="username_input" name="username_input" type="text" ref={usernameElem} />
-                </div>
-                <div>
-                    <label htmlFor="user_pass">Enter your password</label>
-                    <input id="user_pass" name="user_pass" type="password" ref={passwordElem} />
-                </div>
-                <div>
-                    <button type="submit" className="login_button" id="login_button">Log in</button>
-                </div>
+    return <form onSubmit={loginHandler}>
+        <h3>Sign into your account</h3>
+        <div className="login-container">
+            <div>
+                <label htmlFor="username_input">Please enter your username</label>
+                <input id="username_input" name="username_input" type="text" ref={usernameElem} />
             </div>
-            <h3>If you don't have an account <a href="./signup">create one</a></h3>
-        </form>
-    </div>
+            <div>
+                <label htmlFor="user_pass">Enter your password</label>
+                <input id="user_pass" name="user_pass" type="password" ref={passwordElem} />
+            </div>
+            <div>
+                <button type="submit" className="login_button" >Log in</button>
+            </div>
+        </div>
+        <h3>If you don't have an account <a href="./signup" >create one</a></h3>
+    </form>
 }

@@ -29,13 +29,15 @@
     margin: 20px 0;
 }
 
-.upload-section img.preview {
-    max-width: 100%;
-    max-height: 400px;
+.preview {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ccc;
 }
 
 .task img {
-    /* margin-right: 10px; */
     max-width: 50px;
     max-height: 50px;
     border-radius: 5px;

@@ -14,7 +14,7 @@ export default function Signup() {
 
     const onDrop = useCallback((files) => {
         let localFile = files?.[0]
-        if (file) {
+        if (localFile) {
             setFile(localFile);
             let fileReader = new FileReader();
             fileReader.readAsDataURL(localFile);
@@ -32,23 +32,6 @@ export default function Signup() {
             'image/jpg': ['.jpg']
         }
     });
-
-    // const [file, setFile] = useState(null);
-    // const [url, setUrl] = useState();
-    // const [previewDataUrl, setPreviewDataUrl] = useState();
-
-    // function fileChanged({ target }) {
-    //     let localFile = target.files[0]
-    //     setFile(localFile);
-    //     console.log(`file: ${localFile}`)
-
-    //     let fileReader = new FileReader();
-    //     fileReader.readAsDataURL(localFile);
-
-    //     fileReader.onloadend = function () {
-    //         setPreviewDataUrl(fileReader.result);
-    //     }
-    // }
 
     async function uploadFile() {
         let fd = new FormData();
@@ -172,7 +155,7 @@ export default function Signup() {
                     <div className={"upload-section " + (isDragActive && "is-dragging")} {...getRootProps()}>
                         <input {...getInputProps()} />
                         {file ?
-                            <img src={dataUrl} className="preview" /> :
+                            <img src={dataUrl} className="preview" alt="Profile Preview" width="250" height="150"/> :
                             <p>{isDragActive ? "Please drop your file here" : "Please drag and drop yor file here"}</p>
                         }
                         {/* <input {...getInputProps()} type="file" onChange={(e) => fileChanged(e)} accept="image/png"></input> */}
@@ -193,7 +176,6 @@ export default function Signup() {
                 <section>
                     <button className={`signup-button ${Object.keys(formik.errors).length > 0 ? "disabled" : ""}`}
                         type="submit"
-                        id="signup-button"
                     >
                         Sign up
                     </button>
