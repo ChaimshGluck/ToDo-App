@@ -1,0 +1,83 @@
+.task-list {
+    margin-bottom: 30px;
+}
+
+.task-header {
+    margin-bottom: 10px;
+}
+
+.todo-container {
+    display: grid;
+    border: 1px solid #ddd;
+    background-color: white;
+    border-radius: 10px;
+    width: 500px;
+    justify-content: center;
+    align-items: center;
+}
+
+.task-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    width: 400px;
+}
+
+.task-title-and-img {
+    display: flex;
+    align-items: center;
+}
+
+.task-title-and-img img {
+    margin-right: 10px;
+    max-width: 50px;
+    max-height: 50px;
+    border-radius: 5px;
+}
+
+.add_task {
+    margin-top: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+
+.task {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    background: white;
+    border-radius: 10px;
+    padding: 0 20px;
+    color: black;
+}
+
+.task p {
+    font-size: smaller;
+    font-weight: lighter;
+    padding: 10px 0;
+}
+
+.completed .task p {
+    text-decoration: line-through;
+}
+
+.input-container button {
+    background: none;
+    border: black 1px solid;
+    cursor: pointer;
+    border-radius: 10px;
+    font-size: larger;
+}
+
+.input-container button:hover,
+.input-container button:active {
+    background: #eee;
+    border: blue 1px solid;
+}

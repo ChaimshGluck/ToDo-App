@@ -1,0 +1,197 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f0f0f0;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .todo-container {
+    background: #d3d0d9;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    width: 50%;
+    padding: 40px 50px;
+  }
+  
+  .input-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+  }
+  
+  .login-container {
+    margin-bottom: 10px;
+  }
+  
+  .input-container input {
+    flex-grow: 1;
+    height: 12px;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    margin-right: 5px;
+  }
+  
+  .input-container input:focus {
+    outline: blue 1px solid;
+  }
+  
+  .input-container button {
+    width: 32px;
+    height: 32px;
+    background: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    font-size: larger;
+  }
+  
+  .input-container button:hover {
+    background: #eee;
+  }
+  
+  .input-container button:active {
+    background: #eee;
+    border: blue 1px solid;
+  }
+  
+  .task-list {
+    margin-bottom: 30px;
+  }
+  
+  .task-header {
+    font-weight: lighter;
+    font-size: small;
+    margin-bottom: 10px;
+  }
+  
+  .task {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    background: white;
+    border-radius: 10px;
+    padding: 0px 20px;
+  }
+  
+  .task p {
+    font-size: smaller;
+    font-weight: lighter;
+    padding: 10px 0px;
+  }
+  
+  .task button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+  }
+  
+  .task button:hover {
+    background: #eee;
+  }
+  
+  .task button:active {
+    background: #eee;
+    border: blue 1px solid;
+  }
+  
+  .completed .task p {
+    text-decoration: line-through
+  }
+  
+  .createdBy {
+    text-align:center;
+  }
+  
+  #deleteBox {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    /* z-index: 1; */
+    /* Sit on top */ 
+    /* left: 0;
+    top: 0; */
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    /* overflow:auto; */
+    /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+  }
+  
+  /* Modal Content */
+  #deleteAlert {
+    background-color: #fefefe;
+    margin: auto;
+    /* Center the modal both horizontally and vertically */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 300px;
+    /* Set width of the modal */
+    text-align: center;
+    /* Center text within the modal */
+    position: fixed;
+    /* Fixes the position */
+    top: 50%;
+    /* Places the top of the modal at the middle of the screen */
+    left: 50%;
+    /* Places the left side of the modal at the middle of the screen */
+    transform: translate(-50%, -50%);
+    /* Moves the modal back by half of its width and height to center it */
+    border-radius: 5px; /*Rounded corners*/
+  }
+  
+  
+  .delete-container {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .done-container {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .done-text {
+    position: absolute;
+    top: -40px; /* Adjust as needed */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.8); /* Background color */
+    color: white; /* Text color */
+    padding: 5px 10px; /* Padding */
+    border-radius: 5px; /* Rounded corners */
+    display: none; /* Initially hidden */
+  }
+  
+  .delete-text {
+    position: absolute;
+    top: -20px; /* Adjust as needed */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.8); /* Background color */
+    color: white; /* Text color */
+    padding: 5px 10px; /* Padding */
+    border-radius: 5px; /* Rounded corners */
+    display: none; /* Initially hidden */
+  }
+  
+  .trash-button:hover .delete-text {
+    display: block; /* Show delete text when hovering over the trash button */
+  }
+  
+  .done-button:hover .done-text {
+    display: block; /* Show delete text when hovering over the trash button */
+  }

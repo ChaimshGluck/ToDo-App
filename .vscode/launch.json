@@ -1,0 +1,21 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch Program",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}\\server/index.js",
+            "env": {
+                "PORT" : "3000",
+                "DB_URL": "postgresql://retool:5VtirHvlo9gz@ep-raspy-base-a6w3apoo.us-west-2.retooldb.com/retool?sslmode=require"
+            }
+        }
+    ]
+}

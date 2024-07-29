@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ToDo App</title>
+  <link rel="stylesheet" href="./style.css">
+  <script src="./login.js"></script>
+  <script src="./app.js"></script>
+</head>
+
+<body>
+  <div class="welcome">
+    <div id="namePrompter" style="display: block;">
+      <div>
+        <h3>Sign into your account</h3>
+      </div>
+      <div class="login-container"><input id="username-input" type="text" placeholder="Please enter your username">
+      </div>
+      <div class="login-container"><input id="user-pass" type="password" placeholder="Enter your password"></div>
+      <div><button id="login-button" onclick="loginBtnClicked()">Log in</button></div>
+    </div>
+    <div>
+      <h3>If you don't have an account create one</h3>
+    </div>
+    <div class="login-container"><input id="new-username-input" type="text" placeholder="Please enter your username">
+    </div>
+    <div class="login-container"><input id="new-user-email" type="email" placeholder="Enter your Email address">
+    </div>
+    <div class="login-container"><input id="new-user-pass" type="password" placeholder="Enter your password"></div>
+    <div><button id="signup-button" onclick="signupBtnClicked()">Sign up</button></div>
+  </div>
+  <h2 id="welcome" style="display: none;">Welcome <span id="username"></span></h2>
+  <div class="todo-container" style="display: none;">
+    <h1 id="app-title"></h1>
+    <div class="input-container">
+      <input type="text" id="new-task" placeholder="Add a new task">
+      <button class="add-task" onclick="addTaskBtnClicked()">+</button>
+    </div>
+    <section class="task-list" id="todo-list">
+    </section>
+    <section class="task-list completed" id="done-list">
+    </section>
+  </div>
+  <div id="deleteBox">
+    <div id="deleteAlert">
+      <p>Are you sure you want to delete?</p>
+      <button onclick="confirmDelete(this)">Yes</button>
+      <button onclick="cancelDelete()">No</button>
+    </div>
+  </div>
+</body>
+
+</html>

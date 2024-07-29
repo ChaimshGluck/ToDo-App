@@ -1,0 +1,42 @@
+.dropzone {
+    border: 2px dashed #cccccc;
+    padding: 20px;
+    text-align: center;
+}
+
+.upload-section,
+.task-img-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: black solid 1px;
+    background-color: #babcbbe2;
+    cursor: pointer;
+    border-radius: 6px;
+    color: #091b1b;
+}
+
+.upload-section.is-dragging {
+    border-color: green;
+    background-color: aquamarine;
+}
+
+.upload-section p {
+    width: 200px;
+}
+
+.upload-section input {
+    margin: 20px 0;
+}
+
+.upload-section img.preview {
+    max-width: 100%;
+    max-height: 400px;
+}
+
+.task img {
+    /* margin-right: 10px; */
+    max-width: 50px;
+    max-height: 50px;
+    border-radius: 5px;
+}
