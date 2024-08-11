@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { useCallback, useContext, useRef, useState } from "react";
+import { useCallback, useContext, useState } from "react";
 import { UserContext } from "./UserContext";
 import { useFormik } from 'formik';
 import { useDropzone } from "react-dropzone";
@@ -9,6 +9,7 @@ export default function Signup() {
 
     const navigate = useNavigate();
     const { setUserid } = useContext(UserContext);
+    const { setProfileImg } = useContext(UserContext);
     const [file, setFile] = useState(null);
     const [dataUrl, setDataUrl] = useState();
 
@@ -25,7 +26,7 @@ export default function Signup() {
         }
     }, [])
 
-    const { getInputProps, getRootProps, isDragActive, acceptedFiles, fileRejections } = useDropzone({
+    const { getInputProps, getRootProps, isDragActive } = useDropzone({
         onDrop,
         accept: {
             'image/png': ['.png'],
@@ -33,19 +34,19 @@ export default function Signup() {
         }
     });
 
-    async function uploadFile() {
-        let fd = new FormData();
-        fd.append('profile', file);
-        console.log(`fd: ${fd}`);
+    // async function uploadFile() {
+    // let fd = new FormData();
+    // fd.append('profile', file);
+    // console.log(`fd: ${fd}`);
 
-        let response = await fetch("http://localhost:3000/users/upload-profile", {
-            method: "POST",
-            body: fd
-        })
-        let responseData = await response.json();
-        console.log(responseData);
-        setUrl(responseData.url)
-    }
+    // let response = await fetch("http://localhost:3000/users/upload-profile", {
+    //     method: "POST",
+    //     body: fd
+    // })
+    // let responseData = await response.json();
+    // console.log(responseData);
+    // setUrl(responseData.url)
+    // }
 
     const formik = useFormik({
         initialValues: {
@@ -57,22 +58,33 @@ export default function Signup() {
         },
         validationSchema: UserSchema,
         onSubmit: async (values) => {
-            let newUser = {
-                firstName: values.first_name_input,
-                lastName: values.last_name_input,
-                email: values.new_user_email,
-                username: values.new_username_input,
-                pass: values.new_user_pass,
-            };
+            // let fd = new FormData();
+            // fd.append('profile', file);
+            // console.log(`fd: ${fd}`);
+
+            // let response = await fetch("http://localhost:3000/users/upload-profile", {
+            //     method: "POST",
+            //     body: fd
+            // })
+            // let responseData = await response.json();
+            // console.log(responseData);
+            // setUrl(responseData.url)
+            let fd = new FormData();
+            fd.append('firstName', values.first_name_input);
+            fd.append('lastName', values.last_name_input);
+            fd.append('email', values.new_user_email);
+            fd.append('username', values.new_username_input);
+            fd.append('pass', values.new_user_pass);
+            if (file) {
+                fd.append('profile', file);
+            }
             let response = await fetch('http://localhost:3000/users', {
                 method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(newUser)
+                body: fd
             });
             let user = await response.json();
             setUserid(user.id);
+            setProfileImg(user.profileImg);
             navigate('/welcome')
             setTimeout(() => navigate(`/tasks`), 3000)
         }
@@ -155,23 +167,10 @@ export default function Signup() {
                     <div className={"upload-section " + (isDragActive && "is-dragging")} {...getRootProps()}>
                         <input {...getInputProps()} />
                         {file ?
-                            <img src={dataUrl} className="preview" alt="Profile Preview" width="250" height="150"/> :
+                            <img src={dataUrl} className="preview" alt="Profile Preview" width="250" height="150" /> :
                             <p>{isDragActive ? "Please drop your file here" : "Please drag and drop yor file here"}</p>
                         }
-                        {/* <input {...getInputProps()} type="file" onChange={(e) => fileChanged(e)} accept="image/png"></input> */}
                     </div>
-                    {file && <button type="button" onClick={uploadFile}>Upload</button>}
-                    {/* <p>Accepted Files</p>
-                    {acceptedFiles.map((af) => {
-                        return <p>{JSON.stringify(af)}</p>
-                    })}
-                    <p>Rejected Files</p>
-                    {fileRejections.map((rf) => {
-                        return <p>{JSON.stringify(rf)}</p>
-                    })} */}
-                    {/* {previewDataUrl && <img src={previewDataUrl} width="200" height="200" />}
-                    {url && <img src={url} width="200" height="200"></img>} */}
-
                 </section>
                 <section>
                     <button className={`signup-button ${Object.keys(formik.errors).length > 0 ? "disabled" : ""}`}

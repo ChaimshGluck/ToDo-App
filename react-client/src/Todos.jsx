@@ -6,6 +6,7 @@ import { UserContext } from "./UserContext";
 
 export default function Todos() {
     const { userid } = useContext(UserContext);
+    const { profileImg } = useContext(UserContext);
     const navigate = useNavigate();
     const [tasks, setTasks] = useState([]);
 
@@ -33,6 +34,7 @@ export default function Todos() {
     };
 
     return <div className="todo-container" >
+        {profileImg && <img className="preview" src={`http://localhost:3000/${profileImg}`} alt="profile image" width="250" height="150" />}
         <h1 id="app-title">Todo App</h1>
         <NewTask tasks={tasks} setTasks={setTasks} loadTasks={loadTasks} />
         <section className="task-list" id="todo-list">

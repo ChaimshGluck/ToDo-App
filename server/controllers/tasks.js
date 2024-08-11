@@ -6,10 +6,10 @@ export async function createTask(title, userid, image) {
         user_id: userid,
         image: image
     })
-    return { id: result.id, title : result.title, userid: result.user_id, image: result.image }
+    return { id: result.id, title: result.title, userid: result.user_id, image: result.image }
 };
 
-export async function getUsersTasks(userid){
+export async function getUsersTasks(userid) {
     const result = await db.manyOrNone(`
     select id as task_id, title, status, image
     from todos1.task

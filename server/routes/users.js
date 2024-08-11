@@ -36,14 +36,15 @@ passport.use(cookieStrategy);
 const router = express.Router();
 export default router;
 
-router.post("", async (req, res) => {
-    let result = await createUser(req.body);
+router.post("", upload.single("profile"), async (req, res) => {
+    const image = req.file ? req.file.path : null;
+    let result = await createUser(req.body, image);
     res.json(result)
 });
 
 router.get("/login", passport.authenticate('local', { session: false }), async (req, res) => {
     const token = jwt.sign({ user: req.user.id }, 'Super-strong-secret')
-    res.cookie('token', token).json({ ok: true, id: req.user.id })
+    res.cookie('token', token).json({ ok: true, id: req.user.id, profileImg: req.user.profileImg })
 });
 
 // router.get("/login", async (req, res) => {

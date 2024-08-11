@@ -7,6 +7,7 @@ export default function Login() {
     const usernameElem = useRef(null);
     const passwordElem = useRef(null);
     const { setUserid } = useContext(UserContext);
+    const {setProfileImg} = useContext(UserContext);
 
     async function loginHandler(event) {
         event.preventDefault();
@@ -33,6 +34,7 @@ export default function Login() {
             if (user.ok) {
                 console.log(user);
                 setUserid(user.id);
+                setProfileImg(user.profileImg)
                 // navigate('/welcome');
                 setTimeout(() => navigate(`/tasks`), 300);
             }
