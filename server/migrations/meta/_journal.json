@@ -1,0 +1,27 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1724562480203,
+      "tag": "0000_rapid_mikhail_rasputin",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1724563621076,
+      "tag": "0001_melted_bloodaxe",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1724563688538,
+      "tag": "0002_broad_black_bird",
+      "breakpoints": true
+    }
+  ]
+}

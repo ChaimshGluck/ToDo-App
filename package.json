@@ -1,0 +1,12 @@
+{
+  "name": "todo-app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start-fe": "cd react-client && npm run dev",
+    "start-be": "cd server && npm start"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

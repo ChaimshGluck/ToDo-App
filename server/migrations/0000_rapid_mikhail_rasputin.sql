@@ -1,0 +1,33 @@
+-- CREATE SCHEMA "todos1";
+-- --> statement-breakpoint
+-- CREATE TABLE IF NOT EXISTS "todos1"."person" (
+-- 	"id" serial PRIMARY KEY NOT NULL,
+-- 	"username" text NOT NULL,
+-- 	"email" text,
+-- 	"pass" text NOT NULL,
+-- 	"firstname" text NOT NULL,
+-- 	"lastname" text,
+-- 	"profile_img" text,
+-- 	"role" text DEFAULT 'user' NOT NULL
+-- );
+-- --> statement-breakpoint
+-- CREATE TABLE IF NOT EXISTS "todos1"."task" (
+-- 	"id" serial PRIMARY KEY NOT NULL,
+-- 	"user_id" integer NOT NULL,
+-- 	"title" text NOT NULL,
+-- 	"tags" text[],
+-- 	"description" text,
+-- 	"status" text DEFAULT 'active' NOT NULL,
+-- 	"deleted_at" timestamp with time zone,
+-- 	"created_at" timestamp with time zone DEFAULT now(),
+-- 	"image" text
+-- );
+-- --> statement-breakpoint
+-- DO $$ BEGIN
+--  ALTER TABLE "todos1"."task" ADD CONSTRAINT "task_user_id_person_id_fk" FOREIGN KEY ("user_id") REFERENCES "todos1"."person"("id") ON DELETE no action ON UPDATE no action;
+-- EXCEPTION
+--  WHEN duplicate_object THEN null;
+-- END $$;
+
+ALTER TABLE "todos1"."person"
+ADD COLUMN IF NOT EXISTS "role" text DEFAULT 'user' NOT NULL;

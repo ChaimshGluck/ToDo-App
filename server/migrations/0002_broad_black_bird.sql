@@ -1,0 +1,1 @@
+ALTER TABLE "todos1"."person" ADD COLUMN "role2" text DEFAULT 'user2' NOT NULL;

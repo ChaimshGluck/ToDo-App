@@ -1,0 +1,1 @@
+ALTER TABLE "todos1"."person" DROP COLUMN IF EXISTS "role";
