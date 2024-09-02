@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start-fe": "cd react-client && npm run dev",
-    "start-be": "cd server && npm start"
+    "start-fe": "cd react-client && npm i && npm run dev",
+    "start-be": "cd server && npm i && npm start",
+    "postinstall": "npm run start-be && npm run start-fe"
   },
   "author": "",
   "license": "ISC",
