@@ -5,7 +5,7 @@
   "scripts": {
     "start-fe": "cd react-client && npm i && npm run dev",
     "start-be": "cd server && npm i && npm start",
-    "postinstall": "npm run start-be && npm run start-fe"
+    "postinstall": "npm run start-be"
   },
   "author": "",
   "license": "ISC",
