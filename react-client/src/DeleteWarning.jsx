@@ -6,7 +6,8 @@ export default function DeleteWarning({ taskToDelete, loadTasks, setShowDeleteBo
 
     async function confirmDelete() {
         await fetch(`http://localhost:3000/tasks/${taskToDelete.current}?userid=${userid}`, {
-            method: "DELETE"
+            method: "DELETE",
+            credentials: 'include'
         });
         setShowDeleteBox(false);
         loadTasks();

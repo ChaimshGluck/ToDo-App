@@ -16,7 +16,7 @@ const db = pgp(process.env.DB_URL)
 //     port: 5432,
 //     database: 'retool',
 //     user: 'retool',
-//     password: '5VtirHvlo9gz',
+//     password: 'DVdj9xLf8ATZ',
 //     ssl: true,
 // });
 

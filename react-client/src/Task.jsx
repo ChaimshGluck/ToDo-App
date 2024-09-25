@@ -9,6 +9,7 @@ export default function Task({ task, loadTasks }) {
     async function markAsDone() {
         await fetch(`http://localhost:3000/tasks/${task.id}`, {
             method: "PATCH",
+            credentials: "include"
         });
         loadTasks();
     }

@@ -62,4 +62,4 @@ const regEx = /^[abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ]$/
 const result = regEx.test(article);
 // const result = article.match(regEx);
 // console.log(regEx.exec(article));
-console.log(result)
+// console.log(result)

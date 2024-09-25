@@ -1,9 +1,9 @@
 {
-    "dialect": "postgresql",
-    "out": "./migrations/",
-    "schema": "./drizzle/",
-    "schemaFilter": "todos1",
-    "dbCredentials": {
-      "url": "postgresql://retool:97FXkcxsZgQn@ep-raspy-base-a6w3apoo.us-west-2.retooldb.com/retool?sslmode=require"
-    }
+  "dialect": "postgresql",
+  "out": "./migrations/",
+  "schema": "./drizzle/",
+  "schemaFilter": "todos1",
+  "dbCredentials": {
+    "url": "postgresql://retool:DVdj9xLf8ATZ@ep-raspy-base-a6w3apoo.us-west-2.retooldb.com/retool?sslmode=require"
+  }
 }

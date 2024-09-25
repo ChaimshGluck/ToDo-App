@@ -48,6 +48,7 @@ export default function NewTask({ loadTasks }) {
 
         await fetch("http://localhost:3000/tasks", {
             method: "POST",
+            credentials: "include",
             body: fd
         });
         loadTasks();

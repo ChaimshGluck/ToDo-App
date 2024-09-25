@@ -13,7 +13,14 @@ const __dirname = path.dirname(__filename);
 const PORT = process.env.PORT
 
 const app = express();
-app.use(express.static(path.join(__dirname, '..', 'client')));
+// app.use(function (req, res, next) {
+//     res.send('Server is up and running...');
+//     next()
+// })
+
+const publicPath = path.join(__dirname, '../react-client/dist');
+app.use('/', express.static(publicPath));
+
 app.use(cors({
     origin : 'http://localhost:5173',
     credentials: true,
@@ -26,11 +33,10 @@ app.use('/users', usersRouter)
 app.use('/images', express.static('uploads'))
 app.use('/uploads', express.static('uploads'));
 
-app.get('/', (req, res) => {
-    const indexPath = path.join(__dirname, '..', 'client', 'index.html');
-    console.log(`Serving index file from: ${indexPath}`);
-    res.sendFile(indexPath);
-});
+// app.get('*', (req, res) => {
+//     console.log(`Serving index file from: ${publicPath}`);
+//     res.sendFile(path.join(publicPath, 'index.html'));
+// });
 
 app.listen('3000', () => {
     console.log(`The server is now listening to requests on port 3000 ...`)
